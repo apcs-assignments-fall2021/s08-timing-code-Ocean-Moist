@@ -19,7 +19,11 @@ public class MyMain {
     // makeRandomArray(1) => [0]
     public static int[] makeRandomArray(int x) {
         // YOUR CODE HERE
-        return new int[0];
+        int[] arr = new int[x];
+        for (int i = 0; i < x; i++) {
+            arr[i] = (int) (Math.random() * x);
+        }
+        return arr;
     }
 
     // *********
@@ -30,17 +34,15 @@ public class MyMain {
     public static int[] copyArray(int[] arr) {
         int[] arr2 = new int[arr.length];
 
-        for (int i = 0; i < arr.length; i++) {
-            arr2[i] = arr[i];
-        }
+        System.arraycopy(arr, 0, arr2, 0, arr.length);
 
         return arr2;
     }
 
     // Linear Search
     public static boolean linearSearch(int[] arr, int x) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == x) {
+        for (int j : arr) {
+            if (j == x) {
                 return true;
             }
         }
@@ -74,7 +76,7 @@ public class MyMain {
     }
 
     // Insertion Sort
-    public static void insertionSort(int arr[]) {
+    public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int current = arr[i];
 
@@ -132,9 +134,7 @@ public class MyMain {
     public static int[] subArray(int[] arr, int begin, int end) {
         int[] output = new int[end-begin];
 
-        for (int i = 0; i < output.length; i++) {
-            output[i] = arr[i + begin];
-        }
+        System.arraycopy(arr, 0 + begin, output, 0, output.length);
 
         return output;
     }
